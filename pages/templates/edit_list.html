@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Edit List{% endblock %}
+
+{% block content %}
+    {% if item %}
+
+        <form class="form-inline my-2 my-lg-0" method="POST">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="{{ item.item }}" value="{{ item.item }}" aria-label="To-Do Item" name="item">
+                <input type="hidden" value="{{ item.completed }}" name="completed">
+                <input type="hidden" value="{{ item.user }}" name="user">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Save changes</button>
+        </form>
+
+    {% endif %}
+
+{% endblock %}
+

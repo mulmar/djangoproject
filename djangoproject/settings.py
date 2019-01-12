@@ -81,17 +81,27 @@ WSGI_APPLICATION = 'djangoproject.wsgi.application'
 
 DATABASES = {
     'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'testdb',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '3306',
+# database on heroku    
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',     
+### standard django engine
+###        'ENGINE': 'django.db.backends.sqlite3',
+###        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),# local mysql database
+#local mysql database data
+#        'ENGINE': 'django.db.backends.mysql',      
+#        'NAME': 'testdb',
+#        'USER': 'root',
+#        'PASSWORD': 'password',
+#        'HOST': 'localhost',
+#        'PORT': '3306',
         
     }
 }
+
+#link from heroku database (This will change daily see: https://data.heroku.com/datastores/e64baf3a-e64a-4482-9d92-69360df69420#administration)
+DATABASES['default'] = dj_database_url.config(default='postgres://ngvpuorkoymbyq:458c2322840905e572beef4d931fe3426082aa14d8db69fc2f34f720a4130c90@ec2-23-21-171-25.compute-1.amazonaws.com:5432/df4djjkmejdhuv')
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation

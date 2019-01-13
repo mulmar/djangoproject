@@ -15,3 +15,6 @@ class Address(models.Model):
 	address = models.CharField(max_length=200)
 	zipcode = models.CharField(max_length=8)
 	city = models.CharField(max_length=50)
+
+	def __str__(self):
+		return self.name + ' | ' + str(self.email)+ ' | ' + str(self.city)

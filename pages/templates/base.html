@@ -30,6 +30,19 @@
                             <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
                   </ul>
+
+                  <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"href="{% url 'addressbook' %}">Addressbook</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'addressbook' %}">open book</a>
+                            <a class="dropdown-item" href="{% url 'add_address' %}">Add address</a>
+                          </div>
+                        </li>   
+                      </ul>
+             
+
+
                   <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

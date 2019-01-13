@@ -8,7 +8,13 @@ from .forms import ListForm
 from django.http import HttpResponseRedirect
 
 def about(request):
-    return render(request, "about.html", {}) 
+    return render(request, "about.html", {})    
+
+def addressbook(request):
+    return render(request, "addressbook.html", {})    
+
+def add_address(request):
+    return render(request, "add_address.html", {})          
 
 def contact(request):
     return render(request, "contact.html", {}) 
